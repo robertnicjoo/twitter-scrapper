@@ -232,12 +232,15 @@ The application uses a PostgreSQL database to store the data.
 
 - **Post**: Stores scraped tweets.
   - `id`: Primary key (auto-increment).
-  - `tweetText`: The text content of the tweet.
-  - `createdAt`: Timestamp of when the tweet was scraped.
+  - `tweetId`: Tweet Primary key to avoid duplicate database entry.
+  - `text`: The text content of the tweet.
+  - `videoUrl`: The Video URL of the tweet.
+  - `images`: Images related to tweet in images table.
 
 - **Image**: Stores images associated with the tweets.
   - `id`: Primary key (auto-increment).
   - `url`: URL of the image.
+  - `localPath`: Local path of saved image.
 
 ---
 

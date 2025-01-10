@@ -31,37 +31,6 @@ export class TwitterService {
     // Fetch the user ID first if not already a valid ID
     const userId = await this.getUserIdFromUsername(username);
 
-    // while (retries < maxRetries) {
-    //   try {
-    //     const userTweets = await this.twitterClient.v2.userTimeline(userId, {
-    //       max_results: tweetCount, // Specify number of tweets to fetch
-    //       exclude: ['retweets', 'replies'], // Exclude retweets and replies if needed
-    //     });
-
-    //     return userTweets.data; // This will return an array of tweet objects
-    //   } catch (error) {
-    //     if (error?.response?.status === 429) {
-    //       // Extract rate limit reset time from headers
-    //       const resetTime = error?.response?.headers['x-rate-limit-reset'];
-    //       const resetDate = new Date(parseInt(resetTime) * 1000);
-    //       const now = new Date();
-    //       const waitTime = Math.max(resetDate.getTime() - now.getTime(), 0);
-
-    //       // Log the retry attempt and wait time
-    //       console.log(
-    //         `Rate limit exceeded. Retrying after ${waitTime / 1000} seconds...`,
-    //       );
-    //       await sleep(waitTime); // Wait until rate limit resets
-
-    //       retries++; // Increment retry count
-    //     } else {
-    //       // Other errors
-    //       console.error('Error fetching tweets:', error);
-    //       throw error;
-    //     }
-    //   }
-    // }
-
     // throw new Error('Max retry attempts exceeded'); // Throw error if retries are exhausted
     while (retries < maxRetries) {
       try {
